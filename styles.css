@@ -1,0 +1,98 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #121212;
+  color: #e6e6e6;
+}
+.app { max-width: 1300px; margin: 0 auto; padding: 20px; }
+.header h1 { margin: 0 0 8px; }
+.header p { margin: 0 0 20px; color: #bfbfbf; }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.panel {
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 14px;
+}
+.tabs { display: flex; gap: 8px; margin-bottom: 10px; }
+.tab {
+  border: 1px solid #3a3a3a;
+  background: #222;
+  color: #ddd;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.tab.active { background: #2f4f8f; border-color: #2f4f8f; }
+.mode { display: none; margin-bottom: 10px; }
+.mode.active { display: block; }
+textarea, input, select {
+  width: 100%;
+  background: #111;
+  color: #ddd;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  padding: 8px;
+}
+textarea { resize: vertical; }
+.row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.job-search-wrap { position: relative; }
+.job-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #111;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 30;
+}
+.job-option {
+  padding: 8px 10px;
+  border-bottom: 1px solid #262626;
+  cursor: pointer;
+}
+.job-option:hover { background: #1d2f52; }
+.actions { margin: 18px 0; }
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+}
+.btn-primary { background: #3a7afe; color: white; }
+.btn-secondary {
+  background: #2a2a2a;
+  color: #ddd;
+  border: 1px solid #3a3a3a;
+  margin-bottom: 8px;
+}
+.results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.results article {
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 12px;
+}
+ul { margin: 0; padding-left: 18px; }
+#status { color: #9ec1ff; }
+@media (max-width: 960px) {
+  .grid, .results { grid-template-columns: 1fr; }
+}

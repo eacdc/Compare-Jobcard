@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Card Compare</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Job Card Comparison - Client vs Internal</h1>
+      <p>Upload client details, fetch internal job card JSON, then compare required details.</p>
+    </header>
+
+    <main>
+      <section class="grid">
+        <article class="panel">
+          <h2>Client Details</h2>
+          <div class="tabs" data-side="client">
+            <button class="tab active" data-side="client" data-mode="file">Image/PDF/File</button>
+            <button class="tab" data-side="client" data-mode="text">Text</button>
+          </div>
+          <div class="mode mode-file active" id="clientFileMode">
+            <input id="clientFile" type="file" accept=".pdf,.txt,image/*">
+          </div>
+          <div class="mode mode-text" id="clientTextMode">
+            <textarea id="clientText" rows="10" placeholder="Paste client details here"></textarea>
+          </div>
+          <textarea id="clientExtracted" rows="10" placeholder="Extracted client text will appear here"></textarea>
+        </article>
+
+        <article class="panel">
+          <h2>Internal Job Card</h2>
+          <p>Internal data is fetched directly from Job Card Generator API.</p>
+          <div class="row">
+            <div class="job-search-wrap">
+              <input id="jobNo" type="text" placeholder="Enter at least 4 digits">
+              <div id="jobNoDropdown" class="job-dropdown"></div>
+            </div>
+            <input id="detectedType" type="text" placeholder="Type auto-detected" readonly>
+            <input id="detectedDb" type="text" placeholder="DB auto-detected" readonly>
+          </div>
+          <textarea id="internalJsonPreview" rows="10" placeholder="Fetched internal job card JSON will appear here" readonly></textarea>
+        </article>
+      </section>
+
+      <section class="actions">
+        <button id="compareBtn" class="btn-primary">Extract and Compare</button>
+        <p id="status"></p>
+      </section>
+
+      <section class="results">
+        <article>
+          <h3>Present in Job Card</h3>
+          <ul id="presentList"></ul>
+        </article>
+        <article>
+          <h3>Missing from Job Card</h3>
+          <ul id="missingList"></ul>
+        </article>
+        <article>
+          <h3>Discrepancies</h3>
+          <ul id="discrepancyList"></ul>
+        </article>
+        <article>
+          <h3>Summary</h3>
+          <p id="summaryText"></p>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
