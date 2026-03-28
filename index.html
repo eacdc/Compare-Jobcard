@@ -41,8 +41,34 @@
             <input id="detectedType" type="text" placeholder="Type auto-detected" readonly>
             <input id="detectedDb" type="text" placeholder="DB auto-detected" readonly>
           </div>
+          <div class="row row-status">
+            <input id="jobStatusDisplay" type="text" placeholder="Status (from search)" readonly title="Job booking status from ERP query">
+            <input id="jobStatusReasonDisplay" type="text" placeholder="Status reason" readonly title="Why this status applies">
+          </div>
           <textarea id="internalJsonPreview" rows="10" placeholder="Fetched internal job card JSON will appear here" readonly></textarea>
         </article>
+      </section>
+
+      <section class="job-search-results-section" id="jobSearchResultsSection" hidden>
+        <h2 class="results-table-heading">Job search results</h2>
+        <p class="results-table-hint">Click a row to select that job. Header row stays visible while scrolling.</p>
+        <div class="job-results-scroll" role="region" aria-label="Job search results table">
+          <table class="job-results-table">
+            <thead>
+              <tr>
+                <th scope="col">Job No</th>
+                <th scope="col">DB</th>
+                <th scope="col">Type</th>
+                <th scope="col">Client</th>
+                <th scope="col">Status</th>
+                <th scope="col">Status reason</th>
+                <th scope="col">Print status</th>
+                <th scope="col">Job date</th>
+              </tr>
+            </thead>
+            <tbody id="jobSearchResultsBody"></tbody>
+          </table>
+        </div>
       </section>
 
       <section class="actions">
@@ -50,7 +76,7 @@
         <p id="status"></p>
       </section>
 
-      <section class="results">
+      <section class="results" id="comparisonResults" aria-label="Comparison results">
         <article>
           <h3>Present in Job Card</h3>
           <ul id="presentList"></ul>

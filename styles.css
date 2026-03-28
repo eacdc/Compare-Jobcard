@@ -46,6 +46,9 @@ textarea { resize: vertical; }
   gap: 8px;
   margin-bottom: 8px;
 }
+.row-status {
+  grid-template-columns: 1fr 2fr;
+}
 .job-search-wrap { position: relative; }
 .job-dropdown {
   display: none;
@@ -85,6 +88,9 @@ button {
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
+#comparisonResults {
+  scroll-margin-top: 16px;
+}
 .results article {
   background: #1c1c1c;
   border: 1px solid #2a2a2a;
@@ -93,6 +99,63 @@ button {
 }
 ul { margin: 0; padding-left: 18px; }
 #status { color: #9ec1ff; }
+.job-search-results-section {
+  margin-top: 20px;
+  background: #1c1c1c;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 14px;
+}
+.results-table-heading {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+.results-table-hint {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #9a9a9a;
+}
+.job-results-scroll {
+  max-height: min(480px, 55vh);
+  overflow: auto;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+.job-results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.job-results-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: #2a2a2a;
+  color: #eee;
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 2px solid #444;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+}
+.job-results-table tbody td {
+  padding: 8px;
+  border-bottom: 1px solid #262626;
+  vertical-align: top;
+  word-break: break-word;
+}
+.job-results-table tbody tr {
+  cursor: pointer;
+}
+.job-results-table tbody tr:hover {
+  background: #252525;
+}
+.job-results-table tbody tr:focus-visible {
+  outline: 2px solid #3a7afe;
+  outline-offset: -2px;
+}
 @media (max-width: 960px) {
   .grid, .results { grid-template-columns: 1fr; }
+  .job-results-table { font-size: 12px; }
 }
